@@ -1,0 +1,8 @@
+dev/
+node_modules/
+
+*test.ts
+
+.gitignore
+nodemon.json
+webpack.config.js
