@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "declaration": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "strict": true,
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    },
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.test.ts",
+        "src/dev.ts"
+    ]
+}
