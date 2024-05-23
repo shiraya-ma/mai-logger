@@ -1,5 +1,21 @@
 # MaiLogger
 
+## TOC
+- [MaiLogger](#mailogger)
+    - [TOC](#toc)
+    - [Features](#features)
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [API](#api)
+        - [Constructor](#constructor)
+            - [ConstructorOption](#constructoroption)
+        - [Log Levels](#log-levels)
+    - [Methods](#methods)
+    - [Examples](#Examples)
+        - [Basic Usage](#basic-usage)
+        - [Advanced Usage](#advanced-usage)
+    - [License](#license)
+
 MaiLogger is a flexible and easy-to-use logging module for JavaScript applications. It provides output in the format `[LOG_LEVEL] yyyy/mm/dd HH:MM:SS messages` by default.
 
 ## Features
@@ -60,7 +76,7 @@ constructor(option?: MaiLogger.ConstructorOption)
 | `WARN` | Use of deprecated APIs, poor use of API, 'almost' errors, other runtime  |situations that are undesirable or unexpected, but not necessarily wrong.
 | `ERROR` | Other runtime errors or unexpected conditions. |
 
-### Methods
+## Methods
 
 ```typescript
 trace(...message: any)
