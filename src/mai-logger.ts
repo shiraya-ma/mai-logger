@@ -7,7 +7,7 @@
  * 
  * @example
  * ```
- * import { MaiLogger } from '@shirayama-mai/mai-logger/;
+ * import { MaiLogger } from '@shirayama-mai/mai-logger';
  * 
  * const log = new MaiLogger({ level: 0, locale: 'jp-JA' });
  * 
