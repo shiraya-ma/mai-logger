@@ -1,6 +1,6 @@
 {
   "name": "@shirayama-mai/mai-logger",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "",
   "keywords": [],
   "homepage": "https://www.shiraya.ma",
@@ -13,7 +13,7 @@
   "scripts": {
     "build": "run-s build:*",
     "build:clean": "rimraf dist",
-    "build:tsc": "",
+    "build:tsc": "tsc -p tsconfig.json",
     "_build:cjs": "tsc -p tsconfig.cjs.json",
     "_build:esm": "tsc -p tsconfig.esm.json",
     "dev": "nodemon"

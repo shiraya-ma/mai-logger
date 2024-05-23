@@ -1,6 +1,6 @@
 'use strict';
 import { MaiLogger } from '.';
-// import { MaiLogger } from '../dist/cjs'
+// import { MaiLogger } from '../dist'
 
 const level: number | MaiLogger.LogLevel = 'TRACE';
 
