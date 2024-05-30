@@ -12,7 +12,7 @@ log.trace('trace log');
 
 log.debug('debug log');
 
-log.info('info log');
+log.info('%c[hoge]', '#f00', '%cinfo log', 'inherit');
 
 log.warn('warn log');
 

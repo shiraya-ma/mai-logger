@@ -1,5 +1,8 @@
 'use strict';
 
+import { getColors } from "./colors";
+import { format } from "./format";
+
 /**
  * Module for log output
  * 
@@ -25,8 +28,10 @@ class MaiLogger {
         ERROR: 4,
     };
 
+    protected readonly _tagColors: MaiLogger.Colors;
+
     private readonly _level: number;
-    private readonly _locales?: Intl.LocalesArgument;
+    private readonly _locales: Intl.LocalesArgument;
 
     /**
      * 
@@ -50,6 +55,12 @@ class MaiLogger {
         }
 
         this._locales = option?.locale || 'ja-JP';
+
+        const isWeb = typeof window !== 'undefined';
+
+        this._tagColors = getColors(isWeb);
+
+        this._format = format(isWeb);
     }
 
     /**
@@ -58,10 +69,10 @@ class MaiLogger {
      * @param message 
      * @returns 
      */
-    public debug (...message: any) {
+    public debug (...messages: any) {
         if (MaiLogger._LOG_LEVEL.DEBUG < this._level) return;
 
-        const data = this._getTag('DEBUG').concat(this._getDate(), ...message);
+        const data = this._format({ tag: 'DEBUG', locales: this._locales, messages, tagColors: this._tagColors });
 
         console.debug(...data);        
     }
@@ -72,10 +83,10 @@ class MaiLogger {
      * @param message 
      * @returns 
      */
-    public error (...message: any) {
+    public error (...messages: any) {
         if (MaiLogger._LOG_LEVEL.ERROR < this._level) return;
 
-        const data = this._getTag('ERROR').concat(this._getDate(), ...message);
+        const data = this._format({ tag: 'ERROR', locales: this._locales, messages, tagColors: this._tagColors });
 
 		console.error(...data);        
     }
@@ -86,10 +97,10 @@ class MaiLogger {
      * @param message 
      * @returns 
      */
-    public info (...message: any) {
+    public info (...messages: any) {
         if (MaiLogger._LOG_LEVEL.INFO < this._level) return;
 
-        const data = this._getTag('INFO').concat(this._getDate(), ...message);
+        const data = this._format({ tag: 'INFO', locales: this._locales, messages, tagColors: this._tagColors });
 
 		console.info(...data);      
     }
@@ -100,10 +111,10 @@ class MaiLogger {
      * @param message 
      * @returns 
      */
-    public trace (...message: any) {
+    public trace (...messages: any) {
         if (MaiLogger._LOG_LEVEL.TRACE < this._level) return;
 
-        const data = this._getTag('TRACE').concat(this._getDate(), ...message);
+        const data = this._format({ tag: 'TRACE', locales: this._locales, messages, tagColors: this._tagColors });
 
 		console.debug(...data);     
     }
@@ -114,13 +125,17 @@ class MaiLogger {
      * @param message 
      * @returns 
      */
-    public warn (...message: any) {
+    public warn (...messages: any) {
         if (MaiLogger._LOG_LEVEL.WARN < this._level) return;
 
-        const data = this._getTag('WARN').concat(this._getDate(), ...message);
+        const data = this._format({ tag: 'WARN', locales: this._locales, messages, tagColors: this._tagColors });
 
 		console.warn(...data);        
     }
+
+    protected _format (option: MaiLogger.FormatOption): string[] {
+        return [];
+    };
 
     private _getDate () {
         return new Date().toLocaleString(this._locales);
@@ -138,8 +153,6 @@ class MaiLogger {
         tag === 'INFO'? 'teal':
         tag === 'DEBUG'? 'blue':
         undefined;
-
-        const tage = `${ tag === 'TRACE'? '': '%c' }[${ String(tag).padEnd(5, ' ') }]`;
 
         const prop = tag === 'TRACE'? undefined: `color: ${ color }`;
 
@@ -173,6 +186,22 @@ namespace MaiLogger {
          * @default "jp-JA"
          */
         locale?: Intl.LocalesArgument;
+    };
+
+    export type Colors = {
+        ERROR: string;
+        DEBUG: string;
+        INFO : string;
+        TRACE: string;
+        WARN : string;
+        DEFAULT: string;
+    };
+
+    export type FormatOption = {
+        tag: LogLevel;
+        locales: Intl.LocalesArgument;
+        messages: string[];
+        tagColors: Colors;
     };
 
     export type LogLevel = "ERROR" | "DEBUG" | "INFO" | "TRACE" | "WARN";
