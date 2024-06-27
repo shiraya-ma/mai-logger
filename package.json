@@ -1,12 +1,12 @@
 {
-  "name": "@shirayama-mai/mai-logger",
-  "version": "2.0.2",
+  "name": "@shiraya-ma/mai-logger",
+  "version": "3.0.0-alpha",
   "description": "",
   "keywords": [],
   "homepage": "https://www.shiraya.ma",
   "bugs": "",
   "license": "MIT",
-  "author": "shirayama-mai <138377007+shirayama-mai@users.noreply.github.com> (https://www.shiraya.ma/)",
+  "author": "shiraya-ma <138377007+shiraya-ma@users.noreply.github.com> (https://www.shiraya.ma/)",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -28,9 +28,5 @@
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4"
-  },
-  "publishConfig": {
-    "access": "restricted",
-    "registry": "https://npm.pkg.github.com/shirayama-mai"
   }
 }
