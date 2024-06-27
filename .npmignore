@@ -3,6 +3,7 @@ node_modules/
 
 *test.ts
 
+.npmrc
 .gitignore
 nodemon.json
 webpack.config.js
