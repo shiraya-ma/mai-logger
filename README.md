@@ -29,7 +29,7 @@ MaiLogger is a flexible and easy-to-use logging module for JavaScript applicatio
 Install the module via npm:
 
 ```bash
-npm i @shirayama-mai/mai-logger
+npm i @shiraya-ma/mai-logger
 ```
 
 ## Usage
@@ -37,7 +37,7 @@ npm i @shirayama-mai/mai-logger
 Import and create an instance of MaiLogger:
 
 ```javascript
-import { MaiLogger } from '@shirayama-mai/mai-logger';
+import { MaiLogger } from '@shiraya-ma/mai-logger';
 
 const log = new MaiLogger({ level: 0, locale: 'ja-JP' });
 // or const log = new MaiLogger({ level: 'TRACE', locale: 'ja-JP' });
@@ -107,7 +107,7 @@ Outputs error level logs.
 
 ### Basic Usage
 ```javascript
-import { MaiLogger } from '@shirayama-mai/mai-logger';
+import { MaiLogger } from '@shiraya-ma/mai-logger';
 
 const log = new MaiLogger({ level: 'DEBUG' });
 // or const log = new MaiLogger({ level: 1 });
@@ -120,7 +120,7 @@ log.error('This is an error message');
 
 ### Advanced Usage
 ```javascript
-import { MaiLogger } from '@shirayama-mai/mai-logger';
+import { MaiLogger } from '@shiraya-ma/mai-logger';
 
 const log = new MaiLogger({ level: 'DEBUG' });
 // or const log = new MaiLogger({ level: 1 });
