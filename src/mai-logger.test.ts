@@ -1,5 +1,5 @@
 'use strict';
-import { afterEach, beforeEach, describe, expect, it, jest, mock, spyOn } from 'bun:test';
+import { beforeEach, describe, expect, it, jest } from 'bun:test';
 
 import { MaiLogger } from './mai-logger';
 
@@ -26,7 +26,7 @@ describe('MaiLogger', () => {
         it('should not log debug message when log level is higher', () => {
             console.debug = jest.fn();
 
-            logger = new MaiLogger({ level: (MaiLogger as any)._LOG_LEVEL.INFO });
+            logger = new MaiLogger({ level: (MaiLogger as any)._LOG_LEVEL.INFO }); // eslint-disable-line @typescript-eslint/no-explicit-any
 
             logger.debug('Debug message');
             

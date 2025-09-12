@@ -1,5 +1,5 @@
 'use strict';
-
+/* eslint-disable @typescript-eslint/no-explicit-any */  
 import { getColors } from "./colors";
 import { format } from "./format";
 
@@ -133,7 +133,8 @@ class MaiLogger {
 		console.warn(...data);        
     }
 
-    protected _format (option: MaiLogger.FormatOption): string[] {
+    /* eslint-disable @typescript-eslint/no-unused-vars */
+    protected _format (_: MaiLogger.FormatOption): string[] {
         return [];
     };
 
