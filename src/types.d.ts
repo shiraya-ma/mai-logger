@@ -6,6 +6,10 @@ declare global {
   export type Brand<K, T> = K & { __brand: T };
 
   export type MaiLogType = keyof typeof MaiLogLevels;
+  export type MaiLogLabel = Brand<
+    'ERROR' | 'DEBUG' | 'INFO' | 'TRACE' | 'WARN' | 'DEFAULT',
+    'MaiLogLabel',
+  >;
 
   export type MaiLogFunction = (...data: unknown[]) => void;
 
