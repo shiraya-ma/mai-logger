@@ -24,4 +24,10 @@ dLog.info('this is default info log');
 dLog.warn('this is default warn log');
 dLog.error('this is default error log');
 
+nLog.trace('this is node trace log');
+nLog.debug('this is node debug log');
+nLog.info('this is node info log');
+nLog.warn('this is node warn log');
+nLog.error('this is node error log');
+
 nLog.info('Preload script is done. You can start development server with `vite dev`.');
