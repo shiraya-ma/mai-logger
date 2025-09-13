@@ -141,7 +141,7 @@ describe('NodeLogger', () => {
     });
 
     it('should pass correctly formatted log to DefaultLogger for debug method', () => {
-      const logger = new NodeLogger({ level: 3, locale: 'ja-JP' });
+      const logger = new NodeLogger({ level: MaiLogLevels.debug, locale: 'ja-JP' });
       const testMessage = 'Debug log';
       logger.debug(testMessage);
       
