@@ -88,7 +88,7 @@ export type NodeLoggerOptions = DefaultLoggerOptions & {
   /**
    * Locale to which the date and time displayed in the log conform
    * 
-   * @default "jp-JA"
+   * @default "ja-JP"
    */
   locale?: Intl.LocalesArgument;
 };
