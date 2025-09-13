@@ -1,5 +1,5 @@
 'use strict';
-import { describe, it, expect, beforeAll, beforeEach, jest, afterAll, mock, setSystemTime } from 'bun:test';
+import { describe, it, expect, beforeAll, beforeEach, jest, afterAll, mock, setSystemTime, afterEach } from 'bun:test';
 
 import { NodeLogger } from './node-logger';
 import { DefaultLogger, DefaultLoggerOptions } from './default-logger';
@@ -7,6 +7,7 @@ import { MaiLogLabels } from './mai-log-labels';
 import { MaiLogLevels } from './mai-log-levels';
 
 describe('NodeLogger', () => {
+  const originalDefaultLogger = DefaultLogger;
   const mockDateProps = [
     2001, // year
     0,    // month
@@ -46,6 +47,12 @@ describe('NodeLogger', () => {
     }));
 
     setSystemTime(new Date(...mockDateProps));
+  });
+
+  afterEach(() => {
+    mock.module('./default-logger', () => ({
+      DefaultLogger: originalDefaultLogger,
+    }));
   });
 
   // Tests for constructor
