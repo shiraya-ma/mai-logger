@@ -72,7 +72,7 @@ describe('NodeLogger', () => {
       // Verify that the internal DefaultLogger is correctly initialized
       expect(mockDefaultLoggerConstructor).toHaveBeenCalledWith({ level: MaiLogLevels.warn });
       // Verify that the locale is correctly configured
-      // The original test for "locale" property is removed since the property does not exist on the class.
+      expect(logger.locale).toBe('ja-JP');
     });
   });
 
