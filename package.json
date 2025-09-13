@@ -7,32 +7,23 @@
   "bugs": "",
   "license": "MIT",
   "author": "shiraya-ma <138377007+shiraya-ma@users.noreply.github.com> (https://www.shiraya.ma/)",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "run-s build:*",
-    "build:clean": "rimraf dist",
-    "build:tsc": "tsc -p tsconfig.json",
-    "dev": "nodemon",
+    "build": "bun ./.bun/build-preload.ts && vite build",
+    "dev": "bun ./.bun/dev-preload.ts && vite dev",
     "lint": "eslint ."
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",
     "@types/bun": "^1.2.21",
-    "@types/webpack": "^5.28.5",
     "eslint": "^9.35.0",
     "globals": "^16.4.0",
-    "nodemon": "^3.1.0",
-    "npm-run-all": "^4.1.5",
-    "rimraf": "^5.0.7",
-    "ts-loader": "^9.5.1",
-    "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
     "typescript-eslint": "^8.43.0",
-    "webpack": "^5.91.0",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.0.4"
+    "vite": "^6",
+    "vite-plugin-dts": "^3"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

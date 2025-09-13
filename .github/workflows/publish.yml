@@ -1,0 +1,54 @@
+name: Publish
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  auto_linting_and_test:
+    name: Auto linting and test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies # (assuming your project has dependencies)
+        run: bun install # You can use npm/yarn/pnpm instead if you prefer
+
+      - name: Run linting
+        run: bun lint
+
+      - name: Run tests
+        run: bun test
+
+  publish-to-npm:
+    needs: auto_linting_and_test
+    name: Publish to npm
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with: 
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build as library
+        run: bun run build
+
+      - name: Setup bunfig.toml
+        run: |
+          echo "[install.scopes]" > ./bunfig.toml
+          echo "\"@shiraya-ma\" = { token = \"${NPM_TOKEN}\", url = \"https://registry.npmjs.org\" }" >> ./bunfig.toml
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Bun Publish
+        run: bun publish --access public --registry https://registry.npmjs.org
