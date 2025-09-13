@@ -1,9 +1,13 @@
 'use strict';
 import { existsSync, rmdirSync, rmSync } from 'fs';
 import { resolve } from 'path';
-import { DefaultLogger, MaiLogLevels } from '../src';
+import { DefaultLogger, MaiLogLevels, NodeLogger } from '../src';
 
-const log = new DefaultLogger({ level: MaiLogLevels.debug });
+const isLocal = process.env.IS_LOCAL === 'true';
+
+const log = isLocal?
+  new NodeLogger({ level: MaiLogLevels.trace }):
+  new DefaultLogger({ level: MaiLogLevels.debug });
 
 const rootdir = resolve(__dirname, '..');
 const distIndexHTML = resolve(rootdir, 'index.html');
