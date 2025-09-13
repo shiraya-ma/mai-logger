@@ -26,7 +26,7 @@ export class DefaultLogger implements MaiLoggerInterface {
   };
 
   private static _assertLevel (level: number): never {
-    throw new Error(`The input value is expected to be a number between 0 and 5. An invalid value outside the valid range was provided. (level: ${level})`);
+    throw new Error(`The input value is expected to be a number between 0 and 4. An invalid value outside the valid range was provided. (level: ${level})`);
   };
 
   public error: MaiLogFunction = (...data) => {

@@ -47,7 +47,7 @@ describe('DefaultLogger', () => {
     it('should throw error if level is invalid', () => {
       expect(() => {
         new DefaultLogger({ level: 99 });
-      }).toThrow('The input value is expected to be a number between 0 and 5. An invalid value outside the valid range was provided. (level: 99)');
+      }).toThrow('The input value is expected to be a number between 0 and 4. An invalid value outside the valid range was provided. (level: 99)');
     });
   });
 
