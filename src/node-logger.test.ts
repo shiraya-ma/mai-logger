@@ -30,6 +30,7 @@ describe('NodeLogger', () => {
       trace: jest.fn(),
     };
 
+    /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
     mockDefaultLoggerConstructor = jest.fn((options: DefaultLoggerOptions) => {
       return mocked as unknown as DefaultLogger
     });
@@ -50,6 +51,7 @@ describe('NodeLogger', () => {
   // Tests for constructor
   describe('constructor', () => {
     it('should configure with locale is valid', () => {
+      /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
       const logger = new NodeLogger({ level: MaiLogLevels.warn, locale: 'en-US' });
       // Verify that the internal DefaultLogger is correctly initialized
       expect(mockDefaultLoggerConstructor).toHaveBeenCalledWith({ level: MaiLogLevels.warn });
@@ -58,7 +60,8 @@ describe('NodeLogger', () => {
     });
 
     it('should configure locale with default "ja-JP" without locale', () => {
-        const logger = new NodeLogger({ level: MaiLogLevels.warn });
+      /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+      const logger = new NodeLogger({ level: MaiLogLevels.warn });
       // Verify that the internal DefaultLogger is correctly initialized
       expect(mockDefaultLoggerConstructor).toHaveBeenCalledWith({ level: MaiLogLevels.warn });
       // Verify that the locale is correctly configured
