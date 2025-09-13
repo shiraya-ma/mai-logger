@@ -1,3 +1,6 @@
 'use strict';
+import { DefaultLogger, MaiLogLevels } from '../src';
 
-console.log('Development server is running...');
+const dLog = new DefaultLogger({ level: MaiLogLevels.debug });
+
+dLog.info('Development server is running...');
