@@ -124,7 +124,7 @@ describe('NodeLogger', () => {
 
     // Similarly, write tests for other log methods (info, debug, trace)
     it('should pass correctly formatted log to DefaultLogger for info method', () => {
-      const logger = new NodeLogger({ level: 2, locale: 'ja-JP' });
+      const logger = new NodeLogger({ level: MaiLogLevels.info, locale: 'ja-JP' });
       const testMessage = 'Info log';
       logger.info(testMessage);
       
