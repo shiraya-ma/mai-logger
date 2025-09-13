@@ -14,6 +14,7 @@ export class NodeLogger implements MaiLoggerInterface {
 
   private readonly _log: DefaultLogger;
   private readonly _locale: Intl.LocalesArgument | undefined;
+  private readonly _maxLabelLength: number;
 
   get locale () {
     return this._locale;
@@ -24,6 +25,10 @@ export class NodeLogger implements MaiLoggerInterface {
       level: options.level,
     });
     this._locale = options.locale ?? "ja-JP";
+
+    this._maxLabelLength = Math.max(
+      ...Object.values(MaiLogLabels).map(l => l.length)
+    );
   };
 
   public error: MaiLogFunction = (...data) => {
@@ -63,13 +68,9 @@ export class NodeLogger implements MaiLoggerInterface {
       data,
     } = options;
 
-    const maxLabelLength = Math.max(
-      ...Object.values(MaiLogLabels).map(l => l.length)
-    );
-
     const tag = [
       NodeLogger._COLORS[type],
-      `[${MaiLogLabels[type].padEnd(maxLabelLength, ' ')}]`,
+      `[${MaiLogLabels[type].padEnd(this._maxLabelLength, ' ')}]`,
       NodeLogger._COLORS.init,
       ' '
     ].join('');
