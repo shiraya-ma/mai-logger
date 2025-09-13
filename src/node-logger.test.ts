@@ -158,7 +158,7 @@ describe('NodeLogger', () => {
     });
 
     it('should pass correctly formatted log to DefaultLogger for trace method', () => {
-      const logger = new NodeLogger({ level: 4, locale: 'ja-JP' });
+      const logger = new NodeLogger({ level: MaiLogLevels.trace, locale: 'ja-JP' });
       const testMessage = 'Trace log';
       logger.trace(testMessage);
       
