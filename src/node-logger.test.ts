@@ -106,7 +106,7 @@ describe('NodeLogger', () => {
     });
 
     it('should pass correctly formatted log to DefaultLogger for warn method', () => {
-      const logger = new NodeLogger({ level: 1, locale: 'en-US' });
+      const logger = new NodeLogger({ level: MaiLogLevels.debug, locale: 'en-US' });
       const testMessage = 'This is a warning';
       logger.warn(testMessage);
       
