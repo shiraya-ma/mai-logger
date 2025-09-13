@@ -7,7 +7,7 @@ declare global {
 
   export type MaiLogType = keyof typeof MaiLogLevels;
   export type MaiLogLabel = Brand<
-    'ERROR' | 'DEBUG' | 'INFO' | 'TRACE' | 'WARN' | 'DEFAULT',
+    'ERROR' | 'DEBUG' | 'INFO' | 'TRACE' | 'WARN',
     'MaiLogLabel',
   >;
 
