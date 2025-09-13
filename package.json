@@ -7,13 +7,11 @@
   "bugs": "",
   "license": "MIT",
   "author": "shiraya-ma <138377007+shiraya-ma@users.noreply.github.com> (https://www.shiraya.ma/)",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "run-s build:*",
-    "build:clean": "rimraf dist",
-    "build:tsc": "tsc -p tsconfig.json",
+    "build": "bun ./.bun/build-preload.ts && vite build",
     "dev": "nodemon",
     "lint": "eslint ."
   },
