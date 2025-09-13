@@ -12,7 +12,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "bun ./.bun/build-preload.ts && vite build",
-    "dev": "nodemon",
+    "dev": "bun ./.bun/dev-preload.ts && vite dev",
     "lint": "eslint ."
   },
   "devDependencies": {
