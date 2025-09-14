@@ -67,7 +67,6 @@ describe('NodeLogger', () => {
     });
 
     it('should configure locale with default "ja-JP" without locale', () => {
-      /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
       const logger = new NodeLogger({ level: MaiLogLevels.warn });
       // Verify that the internal DefaultLogger is correctly initialized
       expect(mockDefaultLoggerConstructor).toHaveBeenCalledWith({ level: MaiLogLevels.warn });
