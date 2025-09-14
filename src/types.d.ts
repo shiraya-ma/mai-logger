@@ -26,4 +26,22 @@ declare global {
     type: MaiLogType; 
     data: unknown[];
   };
+
+  export type DefaultLoggerOptions = Partial<{
+    /**
+     * The most detailed log level to output
+     * 
+     * @default "INFO"
+     */
+    level: number;
+  }>;
+
+  export type MaiLoggerOptions = DefaultLoggerOptions & Partial<{
+    /**
+    * Locale to which the date and time displayed in the log conform
+    * 
+    * @default "ja-JP"
+    */
+    locale?: Intl.LocalesArgument;
+  }>;
 };

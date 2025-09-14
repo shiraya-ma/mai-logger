@@ -2,7 +2,7 @@
 import { describe, it, expect, beforeAll, beforeEach, jest, afterAll, mock, setSystemTime, afterEach } from 'bun:test';
 
 import { NodeLogger } from './node-logger';
-import { DefaultLogger, DefaultLoggerOptions } from './default-logger';
+import { DefaultLogger } from './default-logger';
 import { MaiLogLabels } from './mai-log-labels';
 import { MaiLogLevels } from './mai-log-levels';
 
