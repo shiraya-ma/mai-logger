@@ -1,6 +1,6 @@
 {
   "name": "@shiraya-ma/mai-logger",
-  "version": "4.0.0-alpha",
+  "version": "4.0.0-alpha.1",
   "description": "",
   "keywords": [],
   "homepage": "https://www.shiraya.ma",
@@ -31,5 +31,8 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/shiraya-ma/mai-logger.git"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
