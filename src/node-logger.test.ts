@@ -2,7 +2,7 @@
 import { describe, it, expect, beforeAll, beforeEach, jest, afterAll, mock, setSystemTime, afterEach } from 'bun:test';
 
 import { NodeLogger } from './node-logger';
-import { DefaultLogger, DefaultLoggerOptions } from './default-logger';
+import { DefaultLogger } from './default-logger';
 import { MaiLogLabels } from './mai-log-labels';
 import { MaiLogLevels } from './mai-log-levels';
 
@@ -67,7 +67,6 @@ describe('NodeLogger', () => {
     });
 
     it('should configure locale with default "ja-JP" without locale', () => {
-      /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
       const logger = new NodeLogger({ level: MaiLogLevels.warn });
       // Verify that the internal DefaultLogger is correctly initialized
       expect(mockDefaultLoggerConstructor).toHaveBeenCalledWith({ level: MaiLogLevels.warn });

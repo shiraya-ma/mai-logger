@@ -1,5 +1,5 @@
 'use strict';
-import { DefaultLogger, type DefaultLoggerOptions } from "./default-logger";
+import { DefaultLogger } from "./default-logger";
 import { MaiLogLabels } from "./mai-log-labels";
 
 export class NodeLogger implements MaiLoggerInterface {
@@ -20,11 +20,11 @@ export class NodeLogger implements MaiLoggerInterface {
     return this._locale;
   };
 
-  constructor (options: NodeLoggerOptions) {
+  constructor (options?: MaiLoggerOptions) {
     this._log = new DefaultLogger({
-      level: options.level,
+      level: options?.level,
     });
-    this._locale = options.locale ?? "ja-JP";
+    this._locale = options?.locale ?? "ja-JP";
 
     this._maxLabelLength = Math.max(
       ...Object.values(MaiLogLabels).map(l => l.length)
@@ -83,13 +83,4 @@ export class NodeLogger implements MaiLoggerInterface {
       ...data,
     ];
   };
-};
-
-export type NodeLoggerOptions = DefaultLoggerOptions & {
-  /**
-   * Locale to which the date and time displayed in the log conform
-   * 
-   * @default "ja-JP"
-   */
-  locale?: Intl.LocalesArgument;
 };

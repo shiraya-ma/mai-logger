@@ -4,8 +4,8 @@ import { MaiLogLevels } from "./mai-log-levels";
 export class DefaultLogger implements MaiLoggerInterface {
   private readonly _level: number;
 
-  constructor (options: DefaultLoggerOptions) {
-    const { level } = options;
+  constructor (options?: DefaultLoggerOptions) {
+    const level = options?.level ?? MaiLogLevels.info;
 
     this._level = DefaultLogger._getLevel(level);
   };
@@ -54,13 +54,4 @@ export class DefaultLogger implements MaiLoggerInterface {
       console.debug(...data);
     }
   };
-};
-
-export type DefaultLoggerOptions = {
-  /**
-   * The most detailed log level to output
-   * 
-   * @default "INFO"
-   */
-  level: number;
 };
