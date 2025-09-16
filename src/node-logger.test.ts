@@ -3,8 +3,11 @@ import { describe, it, expect, beforeAll, beforeEach, jest, afterAll, mock, setS
 
 import { NodeLogger } from './node-logger';
 import { DefaultLogger } from './default-logger';
-import { MaiLogLabels } from './mai-log-labels';
-import { MaiLogLevels } from './mai-log-levels';
+import {
+  DefaultLoggerConstructorOptions,
+  MaiLogLabels,
+  MaiLogLevels,
+} from './types';
 
 describe('NodeLogger', () => {
   const originalDefaultLogger = DefaultLogger;
@@ -18,7 +21,7 @@ describe('NodeLogger', () => {
     0,    // milliseconds
   ] as [ number, number, number, number, number, number, number ];
 
-  let mockDefaultLoggerConstructor: jest.Mock<(options: DefaultLoggerOptions) => DefaultLogger> | undefined;
+  let mockDefaultLoggerConstructor: jest.Mock<(options: DefaultLoggerConstructorOptions) => DefaultLogger> | undefined;
   let mocked: Omit<DefaultLogger, '_level'> | undefined;
 
   // Create a new NodeLogger instance and mock instance before each test
@@ -32,12 +35,12 @@ describe('NodeLogger', () => {
     };
 
     /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-    mockDefaultLoggerConstructor = jest.fn((options: DefaultLoggerOptions) => {
+    mockDefaultLoggerConstructor = jest.fn((options: DefaultLoggerConstructorOptions) => {
       return mocked as unknown as DefaultLogger
     });
 
     class MockDefaultLogger {
-      constructor (options: DefaultLoggerOptions) {
+      constructor (options: DefaultLoggerConstructorOptions) {
         return mockDefaultLoggerConstructor!(options);
       };      
     };

@@ -1,10 +1,15 @@
 'use strict';
-import { MaiLogLevels } from "./mai-log-levels";
+import {
+  DefaultLoggerConstructorOptions,
+  MaiLogFunction,
+  MaiLoggerInterface,
+  MaiLogLevels,
+} from "./types";
 
 export class DefaultLogger implements MaiLoggerInterface {
   private readonly _level: number;
 
-  constructor (options?: DefaultLoggerOptions) {
+  constructor (options?: DefaultLoggerConstructorOptions) {
     const level = options?.level ?? MaiLogLevels.info;
 
     this._level = DefaultLogger._getLevel(level);
