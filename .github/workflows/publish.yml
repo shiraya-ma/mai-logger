@@ -1,9 +1,9 @@
 name: Publish
 
 on:
-  release:
-    types:
-      - published
+  push:
+    tags:
+      - "v*"
 
 jobs:
   auto_linting_and_test:
@@ -12,12 +12,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # タグと履歴を正しく取るために必要
 
       - name: Install bun
         uses: oven-sh/setup-bun@v2
 
-      - name: Install dependencies # (assuming your project has dependencies)
-        run: bun install # You can use npm/yarn/pnpm instead if you prefer
+      - name: Install dependencies
+        run: bun install
 
       - name: Run linting
         run: bun lint
@@ -32,6 +34,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: oven-sh/setup-bun@v2
         with: 
