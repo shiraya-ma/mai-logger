@@ -29,38 +29,19 @@ export class NodeLogger implements MaiLoggerInterface {
     this._maxLabelLength = Math.max(
       ...Object.values(MaiLogLabels).map(l => l.length)
     );
+
+    this.error = this._createLogFunction('error');
+    this.warn  = this._createLogFunction('warn');
+    this.info  = this._createLogFunction('info');
+    this.debug = this._createLogFunction('debug');
+    this.trace = this._createLogFunction('trace');
   };
 
-  public error: MaiLogFunction = (...data) => {
-    this._log.error(...this._format({
-      type: 'error',
-      data,
-    }));
-  };
-  public warn: MaiLogFunction = (...data) => {
-    this._log.warn(...this._format({
-      type: 'warn',
-      data,
-    }));
-  };
-  public info: MaiLogFunction = (...data) => {
-    this._log.info(...this._format({
-      type: 'info',
-      data,
-    }));
-  };
-  public debug: MaiLogFunction = (...data) => {
-    this._log.debug(...this._format({
-      type: 'debug',
-      data,
-    }));
-  };
-  public trace: MaiLogFunction = (...data) => {
-    this._log.trace(...this._format({
-      type: 'trace',
-      data,
-    }));
-  };
+  public error: MaiLogFunction;
+  public warn : MaiLogFunction;
+  public info : MaiLogFunction;
+  public debug: MaiLogFunction;
+  public trace: MaiLogFunction;
 
   private _format (options: MaiLoggerFormatOptions): unknown[] {
     const {
@@ -82,5 +63,16 @@ export class NodeLogger implements MaiLoggerInterface {
       date,
       ...data,
     ];
+  };
+
+  private _createLogFunction (type: MaiLogType): MaiLogFunction {
+    return (...data) => {
+      this._log[type](
+        ...this._format({
+          type,
+          data,
+        }),
+      );
+    };
   };
 };
