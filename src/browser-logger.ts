@@ -1,6 +1,14 @@
 'use strict';
 import { DefaultLogger } from "./default-logger";
-import { MaiLogLabels } from "./mai-log-labels";
+import {
+  MaiLogFunction,
+  MaiLoggerConstructorOptions,
+  MaiLoggerFormatOptions,
+  MaiLoggerInterface,
+  MaiLogLabels,
+  MaiLogType,
+
+} from "./types";
 
 export class BrowserLogger implements MaiLoggerInterface {
   protected static readonly _COLORS: Record<MaiLogType | 'init', string> = {
@@ -20,7 +28,7 @@ export class BrowserLogger implements MaiLoggerInterface {
     return this._locale;
   };
 
-  constructor (options?: MaiLoggerOptions) {
+  constructor (options?: MaiLoggerConstructorOptions) {
     this._log = new DefaultLogger({
       level: options?.level,
     });

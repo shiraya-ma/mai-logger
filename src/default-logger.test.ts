@@ -2,7 +2,7 @@
 import { describe, it, expect, beforeEach, jest, afterAll } from 'bun:test';
 
 import { DefaultLogger } from './default-logger';
-import { MaiLogLevels } from './mai-log-levels';
+import { MaiLogLevels } from './types';
 
 describe('DefaultLogger', () => {
   const original = {
