@@ -2,21 +2,21 @@
 
 ## TOC
 - [MaiLogger](#mailogger)
-    - [TOC](#toc)
-    - [Features](#features)
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [API](#api)
-        - [Constructor](#constructor)
-            - [ConstructorOption](#constructoroption)
-        - [Log Levels](#log-levels)
-    - [Methods](#methods)
-    - [Examples](#Examples)
-        - [Basic Usage](#basic-usage)
-        - [Advanced Usage](#advanced-usage)
-    - [License](#license)
+  - [TOC](#toc)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [API](#api)
+    - [Constructor](#constructor)
+      - [ConstructorOption](#constructoroption)
+    - [Log Levels](#log-levels)
+  - [Methods](#methods)
+  - [Examples](#Examples)
+    - [Basic Usage](#basic-usage)
+    - [Advanced Usage](#advanced-usage)
+  - [License](#license)
 
-MaiLogger is a flexible and easy-to-use logging module for JavaScript applications. It provides output in the format `[LOG_LEVEL] yyyy/mm/dd HH:MM:SS messages` by default.
+MaiLogger is a flexible and easy-to-use logging module for JavaScript applications. It provides output in the format `[LOG_LEVEL] yyyy/mm/dd H:MM:SS messages` by default.
 
 ## Features
 
@@ -37,10 +37,9 @@ npm i @shiraya-ma/mai-logger
 Import and create an instance of MaiLogger:
 
 ```javascript
-import { MaiLogger } from '@shiraya-ma/mai-logger';
+import { MaiLogger, MaiLogLevels } from '@shiraya-ma/mai-logger';
 
-const log = new MaiLogger({ level: 0, locale: 'ja-JP' });
-// or const log = new MaiLogger({ level: 'TRACE', locale: 'ja-JP' });
+const log = new MaiLogger({ level: MaiLogLevels.trace, locale: 'ja-JP' });
 
 log.trace('hello world!', 'this is MaiLogger');
 ```
@@ -106,31 +105,17 @@ Outputs error level logs.
 ## Examples
 
 ### Basic Usage
-```javascript
-import { MaiLogger } from '@shiraya-ma/mai-logger';
 
-const log = new MaiLogger({ level: 'DEBUG' });
+```javascript
+import { MaiLogger, MaiLoggerLevels } from '@shiraya-ma/mai-logger';
+
+const log = new MaiLogger({ level: MaiLogLevels.debug });
 // or const log = new MaiLogger({ level: 1 });
 
 log.debug('This is a debug message');
 log.info('This is an info message');
 log.warn('This is a warning message');
 log.error('This is an error message');
-```
-
-### Advanced Usage
-```javascript
-import { MaiLogger } from '@shiraya-ma/mai-logger';
-
-const log = new MaiLogger({ level: 'DEBUG' });
-// or const log = new MaiLogger({ level: 1 });
-
-log.trace('Trace message will not be shown');
-log.debug('This is a debug message');
-log.info('This is an info message');
-log.warn('This is a warning message');
-log.error('This is an error message');
-```
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
