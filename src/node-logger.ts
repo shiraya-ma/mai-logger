@@ -44,7 +44,7 @@ export class NodeLogger implements MaiLoggerInterface {
     this.trace = this._createLogFunction('trace');
   };
 
-  public error: MaiLogFunction
+  public error: MaiLogFunction;
   public warn : MaiLogFunction;
   public info : MaiLogFunction;
   public debug: MaiLogFunction;
