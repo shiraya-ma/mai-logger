@@ -1,30 +1,28 @@
 {
   "name": "@shiraya-ma/mai-logger",
-  "version": "4.0.0-alpha.1",
-  "description": "",
-  "keywords": [],
-  "homepage": "https://www.shiraya.ma",
-  "bugs": "",
-  "license": "MIT",
+  "description": "pretty prints",
+  "version": "4.0.0",
   "author": "shiraya-ma <138377007+shiraya-ma@users.noreply.github.com> (https://www.shiraya.ma/)",
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "bun ./.bun/build-preload.ts && vite build",
-    "dev": "bun ./.bun/dev-preload.ts && vite dev",
-    "lint": "eslint ."
-  },
+  "bugs": "https://github.com/shiraya-ma/mai-logger/issues",
   "devDependencies": {
     "@eslint/js": "^9.35.0",
     "@types/bun": "^1.2.21",
     "eslint": "^9.35.0",
+    "fixpack": "^4.0.0",
     "globals": "^16.4.0",
     "typescript": "^5.4.5",
     "typescript-eslint": "^8.43.0",
     "vite": "^6",
     "vite-plugin-dts": "^3"
   },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://www.shiraya.ma",
+  "keywords": [],
+  "license": "MIT",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
@@ -32,7 +30,11 @@
     "type": "git",
     "url": "git://github.com/shiraya-ma/mai-logger.git"
   },
-  "files": [
-    "dist"
-  ]
+  "scripts": {
+    "build": "bun ./.bun/build-preload.ts && vite build",
+    "dev": "bun ./.bun/dev-preload.ts && vite dev",
+    "fixpack": "fixpack",
+    "lint": "eslint ."
+  },
+  "types": "dist/index.d.ts"
 }
