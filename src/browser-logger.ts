@@ -32,6 +32,12 @@ export class BrowserLogger implements MaiLoggerInterface {
     );
 
     this._styleRegExp = BrowserLogger.genStyleRegExp();
+
+    this.error = this._createLogFunction('error');
+    this.warn  = this._createLogFunction('warn');
+    this.info  = this._createLogFunction('info');
+    this.debug = this._createLogFunction('debug');
+    this.trace = this._createLogFunction('trace');
   };
 
   protected static genStyleRegExp (): RegExp {
@@ -61,36 +67,11 @@ export class BrowserLogger implements MaiLoggerInterface {
     return styleRegExp;
   };
 
-  public error: MaiLogFunction = (...data) => {
-    this._log.error(...this._format({
-      type: 'error',
-      data,
-    }));
-  };
-  public warn: MaiLogFunction = (...data) => {
-    this._log.warn(...this._format({
-      type: 'warn',
-      data,
-    }));
-  };
-  public info: MaiLogFunction = (...data) => {
-    this._log.info(...this._format({
-      type: 'info',
-      data,
-    }));
-  };
-  public debug: MaiLogFunction = (...data) => {
-    this._log.debug(...this._format({
-      type: 'debug',
-      data,
-    }));
-  };
-  public trace: MaiLogFunction = (...data) => {
-    this._log.trace(...this._format({
-      type: 'trace',
-      data,
-    }));
-  };
+  public error: MaiLogFunction;
+  public warn : MaiLogFunction;
+  public info : MaiLogFunction;
+  public debug: MaiLogFunction;
+  public trace: MaiLogFunction;
 
   private _filterData (data: unknown[]): _FilterDataProps {
     const initialValue: _FilterDataProps = {
@@ -150,6 +131,17 @@ export class BrowserLogger implements MaiLoggerInterface {
       initStyle,
       ...styles,
     ];
+  };
+
+  private _createLogFunction (type: MaiLogType): MaiLogFunction {
+    return (...data) => {
+      this._log[type](
+        ...this._format({
+          type,
+          data,
+        }),
+      );
+    };
   };
 };
 
