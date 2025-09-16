@@ -13,12 +13,14 @@
   "scripts": {
     "build": "bun ./.bun/build-preload.ts && vite build",
     "dev": "bun ./.bun/dev-preload.ts && vite dev",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "fixpack": "fixpack"
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",
     "@types/bun": "^1.2.21",
     "eslint": "^9.35.0",
+    "fixpack": "^4.0.0",
     "globals": "^16.4.0",
     "typescript": "^5.4.5",
     "typescript-eslint": "^8.43.0",
