@@ -107,7 +107,7 @@ Outputs error level logs.
 ### Basic Usage
 
 ```javascript
-import { MaiLogger, MaiLoggerLevels } from '@shiraya-ma/mai-logger';
+import { MaiLogger, MaiLogLevels } from '@shiraya-ma/mai-logger';
 
 const log = new MaiLogger({ level: MaiLogLevels.debug });
 // or const log = new MaiLogger({ level: 1 });
