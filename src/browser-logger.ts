@@ -90,9 +90,3 @@ export class BrowserLogger implements MaiLoggerInterface {
     };
   };
 };
-
-/** @internal */
-export type _FilterDataProps = {
-  messages  : unknown[];
-  styles    : string[];
-};
