@@ -1,5 +1,5 @@
 'use strict';
-import { existsSync, rmdirSync, rmSync } from 'fs';
+import { existsSync, rmSync } from 'fs';
 import { resolve } from 'path';
 import { DefaultLogger, MaiLogLevels, NodeLogger } from '../src';
 
@@ -19,6 +19,6 @@ if (existsSync(distIndexHTML)) {
 }
 
 if (existsSync(distdir)) {
-  rmdirSync(distdir, { recursive: true });
+  rmSync(distdir, { recursive: true });
   log.info(`Removed: ${distdir}`);
 }
